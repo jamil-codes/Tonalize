@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+:root {
+	--background: #ffffff;
+	--foreground: #111;
+	background: var(--background);
+	color: var(--foreground);
+}
+
+@theme inline {
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--font-sans: var(--font-inter-sans);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background: hsl(211, 10%, 5%);
+		--foreground: #ededed;
+	}
+}
+
+body {
+	background: var(--background);
+	color: var(--foreground);
+	overflow: hidden;
+}
+.mainScheme {
+	background: var(--background);
+	color: var(--foreground);
+}
+
+.navLink {
+	@apply font-light w-16 text-center hover:underline h-10 flex items-center justify-center;
+}
+
+.activeLink * {
+	@apply font-bold;
+}
+
+.box {
+	@apply relative  sm:w-1/5 sm:h-full w-full h-1/5 text-sm  flex items-center justify-center flex-col;
+}
+
+.box .text {
+	@apply w-full  space-y-3;
+}
+.box .text * {
+	@apply w-full text-center;
+}
+.box .title {
+	@apply text-sm font-medium  lg:text-lg xl:text-xl 2xl:text-2xl  select-none  text-center w-full;
+}
+.box .name {
+	@apply text-xs   lg:text-sm    text-center w-full;
+}
+
+.box .hex {
+	@apply text-xs   lg:text-sm 2xl:text-xl   text-center w-full;
+}
+
+/* .grecaptcha-badge {
+	@apply hidden;
+} */
