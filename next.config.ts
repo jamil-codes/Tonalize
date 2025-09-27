@@ -1,10 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export", // enables static export
-    images: {
-        unoptimized: true, // disables Next.js image optimization (needed for static export)
-    }
+  output: "export",
+  basePath: "/Tonalize",
+  assetPrefix: "/Tonalize/",
+  images: {
+        unoptimized: true,
+  }
 };
 
 export default nextConfig;
