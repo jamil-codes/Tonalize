@@ -38,7 +38,7 @@ Tonalize is simple a tool to generate color palettes — ideal for designers and
 
 ## Demo / Screenshots
 
-*(Add live demo link and images here)*
+(Demo Link[https://jamil-codes.github.io/Tonalize/])
 
 ---
 
