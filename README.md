@@ -21,15 +21,14 @@ A Color Palette Generator built with Next.js and TypeScript
 
 ## About
 
-Tonalize is a tool to generate color palettes — ideal for designers and developers who want to derive harmonized colors from a base color or set of colors. It is built with Next.js + TypeScript.  
+Tonalize is simple a tool to generate color palettes — ideal for designers and developers. It is built with Next.js + TypeScript.  
 ([github.com](https://github.com/jamil-codes/Tonalize))
 
 ---
 
 ## Features
 
-- Generate complementary, analogous, triadic, tetradic palettes  
-- Preview color combinations on UI  
+- Generate somple palettes  
 - Copy hex codes to clipboard  
 - Responsive layout  
 - Type safety (TypeScript)  
