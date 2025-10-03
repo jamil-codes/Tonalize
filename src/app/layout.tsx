@@ -26,13 +26,10 @@ export const metadata: Metadata = {
   authors: [{ name: "Jamil Ahmed", url: "https://github.com/jamil-codes" }],
   creator: "Jamil Ahmed",
   publisher: "Jamil Codes",
-  metadataBase: new URL("https://jamil-codes.github.io"),
-  alternates: {
-    canonical: "https://jamil-codes.github.io/Tonalize",
-  },
+  metadataBase: new URL("https://jamilcodes.com"), // ✅ custom domain base
   openGraph: {
     type: "website",
-    url: "https://jamil-codes.github.io/Tonalize",
+    url: "https://jamilcodes.com/Tonalize", // canonical path
     title: "Tonalize – Smart Color Palette Generator",
     description:
       "Generate and explore professional color palettes for design & development. Free, fast, and built with Next.js.",
@@ -43,21 +40,19 @@ export const metadata: Metadata = {
     title: "Tonalize – Smart Color Palette Generator",
     description:
       "Create and customize color palettes instantly. Perfect for designers & developers.",
-    creator: "@jamilcodes", // replace with your Twitter if you want
+    creator: "@jamilcodes",
   },
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",
   },
-  themeColor: "#4f46e5", // adjust to match your brand accent
+  themeColor: "#4f46e5",
   category: "design",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body
