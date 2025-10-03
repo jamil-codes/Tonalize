@@ -55,6 +55,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="canonical" href="https://jamilcodes.com/Tonalize" />
+      </head>
       <body
         className={`${inter.className} relative antialiased mx-auto bg-white text-gray-900`}
       >
