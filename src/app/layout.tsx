@@ -26,10 +26,10 @@ export const metadata: Metadata = {
   authors: [{ name: "Jamil Ahmed", url: "https://github.com/jamil-codes" }],
   creator: "Jamil Ahmed",
   publisher: "Jamil Codes",
-  metadataBase: new URL("https://jamilcodes.com"), // ✅ custom domain base
+  metadataBase: new URL("https://jamilcodes.com/Tonalize"), // ✅ canonical base for this project
   openGraph: {
     type: "website",
-    url: "https://jamilcodes.com/Tonalize", // canonical path
+    url: "https://jamilcodes.com/Tonalize", // ✅ matches deployed project path
     title: "Tonalize – Smart Color Palette Generator",
     description:
       "Generate and explore professional color palettes for design & development. Free, fast, and built with Next.js.",
