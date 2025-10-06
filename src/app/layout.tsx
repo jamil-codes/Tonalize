@@ -57,6 +57,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="canonical" href="https://jamilcodes.com/Tonalize/" />
+        <link rel="sitemap" type="application/xml" title="Sitemap" href="https://jamilcodes.com/sitemap.xml">
       </head>
       <body
         className={`${inter.className} relative antialiased mx-auto bg-white text-gray-900`}
