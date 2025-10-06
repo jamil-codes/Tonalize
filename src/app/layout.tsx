@@ -26,10 +26,10 @@ export const metadata: Metadata = {
   authors: [{ name: "Jamil Ahmed", url: "https://github.com/jamil-codes" }],
   creator: "Jamil Ahmed",
   publisher: "Jamil Codes",
-  metadataBase: new URL("https://jamilcodes.com/Tonalize"), // ✅ canonical base for this project
+  metadataBase: new URL("https://jamilcodes.com/Tonalize/"), // ✅ canonical base for this project
   openGraph: {
     type: "website",
-    url: "https://jamilcodes.com/Tonalize", // ✅ matches deployed project path
+    url: "https://jamilcodes.com/Tonalize/", // ✅ matches deployed project path
     title: "Tonalize – Smart Color Palette Generator",
     description:
       "Generate and explore professional color palettes for design & development. Free, fast, and built with Next.js.",
@@ -56,7 +56,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="canonical" href="https://jamilcodes.com/Tonalize" />
+        <link rel="canonical" href="https://jamilcodes.com/Tonalize/" />
       </head>
       <body
         className={`${inter.className} relative antialiased mx-auto bg-white text-gray-900`}
