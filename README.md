@@ -1,138 +1,77 @@
 # Tonalize
 
-A Color Palette Generator built with Next.js and TypeScript  
-© Jamil Ahmed
-
----
-
-## Table of Contents
-
-- [About](#about)  
-- [Features](#features)  
-- [Demo / Screenshots](#demo--screenshots)  
-- [Tech Stack](#tech-stack)  
-- [Getting Started](#getting-started)  
-- [Usage](#usage)  
-- [Configuration](#configuration)  
-- [Contributing](#contributing)  
-- [License](#license)
-
----
-
-## About
-
-Tonalize is simple a tool to generate color palettes — ideal for designers and developers. It is built with Next.js + TypeScript.  
-([github.com](https://github.com/jamil-codes/Tonalize))
-
----
+A fast, fully client-side color palette generator. Generates a 5-role palette (primary,
+secondary, accent, text, muted text), nudges it toward WCAG-readable contrast, and lets
+you lock, fine-tune, save, and export it — all in the browser, with **no server, no
+database, and no API routes**. Built to deploy as a static export to GitHub Pages.
 
 ## Features
 
-- Generate somple palettes  
-- Copy hex codes to clipboard  
-- Responsive layout  
-- Type safety (TypeScript)  
-- Easy to extend and integrate  
+- **Harmony-aware generation** — auto, complementary, analogous, triadic, monochromatic
+- **Per-role locking** — lock any color so randomize leaves it alone
+- **Undo / redo** history (and `Ctrl/Cmd+Z` / `Ctrl/Cmd+Shift+Z`)
+- **Fine-tune any color** — hex input + H/S/L sliders, live WCAG contrast badge
+- **Shade ramps** — 50–950 tint/shade scale per role, click any chip to copy its hex
+- **Accessibility panel** — contrast ratio + AA/AAA rating for every background × text pair
+- **Save palettes** to a local library (persisted in `localStorage`)
+- **Shareable links** — palette state is encoded directly in the URL, no backend needed
+- **Export**: PNG, SVG, CSS variables, SCSS variables, Tailwind v3 config, Tailwind v4
+  `@theme`, JSON tokens, and quick hex/labeled copy-to-clipboard
+- **App theme**: light / dark / system, persisted, no flash-of-wrong-theme on load
+- **Keyboard shortcuts**: `Space` to randomize
 
----
+Everything above — including the PNG export — runs with `<canvas>`/SVG and the
+Clipboard API in the browser. Nothing requires a server at runtime.
 
-## Demo / Screenshots
-
-[Demo Link](https://jamil-codes.github.io/Tonalize/)
-
----
-
-## Tech Stack
-
-- **Framework**: Next.js (React)  
-- **Language**: TypeScript  
-- **Styling**: CSS / PostCSS  
-- **Misc**: (You can include things like any utility libraries, color math libs, etc.)
-
----
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js (v16+ recommended)  
-- npm / Yarn / pnpm  
-
-### Install dependencies
+## Local development
 
 ```bash
-# clone the repo
-git clone https://github.com/jamil-codes/Tonalize.git
-
-cd Tonalize
-
-# install (choose your package manager)
 npm install
-# or
-pnpm install
-# or
-yarn install
-```
-
-### Run in development
-
-```bash
 npm run dev
-# or
-pnpm dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view in browser.
-
-### Build & production
+## Building the static export
 
 ```bash
 npm run build
-npm start
 ```
 
----
+This produces a fully static site in `./out` — open `out/index.html` directly, or serve
+the folder with any static file server. There is no `next start` step needed for
+production; static hosting is enough.
 
-## Usage
+## Deploying to GitHub Pages
 
-1. Open the app in browser  
-2. Select or input a base color  
-3. Generate a palette set (e.g. complementary, analogous, etc.)  
-4. Click any generated color to copy its hex  
+A workflow is already set up at `.github/workflows/deploy.yml`. To use it:
 
-You can also use or adapt internal functions for palette generation in other projects.
+1. Push this repo to GitHub.
+2. In **Settings → Pages**, set **Source** to **GitHub Actions**.
+3. If your repo is *not* named `Tonalize`, update the `NEXT_PUBLIC_BASE_PATH` value in
+   `.github/workflows/deploy.yml` to match your repo name (e.g. `/my-repo`). If you're
+   deploying to a custom domain or a `USER.github.io` *user* site, delete that env line
+   entirely — those are served from the root and don't need a base path.
+4. Push to `main`. The workflow builds and publishes `./out` automatically.
 
----
+### Deploying manually (no Actions)
 
-## Configuration
+```bash
+NEXT_PUBLIC_BASE_PATH=/your-repo-name npm run build
+# commit/push the contents of ./out to a `gh-pages` branch, or upload it
+# anywhere that serves static files.
+```
 
-You can adjust settings via config files, for example:
+## Project structure
 
-- `next.config.ts` — Next.js configuration  
-- `tsconfig.json` — TypeScript rules  
-- `postcss.config.mjs` — PostCSS / styling setup  
-
-You may also add environment variables or extend palette logic as needed.
-
----
-
-## Contributing
-
-Contributions are welcome. Here’s how you can help:
-
-1. Fork the repository  
-2. Create a new feature or bugfix branch  
-3. Write your changes (with TypeScript, tests, etc.)  
-4. Open a pull request  
-5. We’ll review and merge  
-
-Please adhere to code style, run formatting and linting, and include tests (if applicable).
-
----
-
-## License
-
-This project is open source, and is licenced under Apache 2.0 Licence
-
+```
+src/
+  app/                 # routes: / (generator), /about, not-found
+  components/          # UI: SwatchBand, ControlsPanel, ExportPanel, ColorEditModal, ...
+  context/             # PaletteContext (state), ThemeContext (UI theme),
+                        # ToastContext (notifications), PanelContext (overlay UI state)
+  lib/
+    color.ts            # HSL/RGB/hex conversions, contrast math, shade ramps — dependency-free
+    palette.ts           # harmony-aware palette generation
+    storage.ts            # localStorage read/write helpers
+    urlShare.ts            # encode/decode palette into a URL param
+    exportPalette.ts        # CSS/SCSS/Tailwind/JSON/PNG/SVG export
+```
