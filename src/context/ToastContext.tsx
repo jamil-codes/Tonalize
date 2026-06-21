@@ -19,7 +19,7 @@ const ToastContext = createContext<ToastContextValue | null>(null);
 
 let nextId = 1;
 
-export function ToastProvider({ children }: { children: React.ReactNode }) {
+export function ToastProvider({ children }: Readonly<{ children: React.ReactNode }>) {
 	const [items, setItems] = useState<ToastItem[]>([]);
 
 	const dismiss = useCallback((id: number) => {

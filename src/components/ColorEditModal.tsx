@@ -6,7 +6,7 @@ import { hslToHex, isValidHex } from "../lib/color"
 import { ColorRole, ROLE_LABELS } from "../lib/palette"
 import { usePalette } from "../context/PaletteContext"
 
-function SliderRow({ label, value, max, onChange, suffix = "" }: { label: string; value: number; max: number; onChange: (v: number) => void; suffix?: string }) {
+function SliderRow({ label, value, max, onChange, suffix = "" }: Readonly<{ label: string; value: number; max: number; onChange: (v: number) => void; suffix?: string }>) {
 	return (
 		<label className="flex flex-col gap-1.5">
 			<span className="flex items-baseline justify-between text-xs">
@@ -21,7 +21,7 @@ function SliderRow({ label, value, max, onChange, suffix = "" }: { label: string
 	)
 }
 
-export function ColorEditModal({ role, onClose }: { role: ColorRole | null; onClose: () => void }) {
+export function ColorEditModal({ role, onClose }: Readonly<{ role: ColorRole | null; onClose: () => void }>) {
 	const { colors, locked, setColorHsl, setColorHex, toggleLock } = usePalette()
 	const [hexInput, setHexInput] = useState("")
 	const [hexError, setHexError] = useState(false)

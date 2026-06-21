@@ -5,7 +5,7 @@ import { ContrastBadge } from "./ContrastBadge"
 const BACKGROUNDS: (keyof PaletteColors)[] = ["primary", "secondary", "accent"]
 const FOREGROUNDS: (keyof PaletteColors)[] = ["text", "textMuted"]
 
-export function ContrastGrid({ colors }: { colors: PaletteColors }) {
+export function ContrastGrid({ colors }: Readonly<{ colors: PaletteColors }>) {
 	return (
 		<div className="flex flex-col gap-1.5">
 			{BACKGROUNDS.map((bg) => {

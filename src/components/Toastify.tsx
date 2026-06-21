@@ -15,20 +15,7 @@ export const Toast = (msg: string, theme: "light" | "dark" = "light") => {
 };
 
 function Toastify() {
-	return (
-		<ToastContainer
-			position="bottom-center"
-			autoClose={2000}
-			hideProgressBar
-			newestOnTop={false}
-			closeOnClick={false}
-			rtl={false}
-			pauseOnFocusLoss
-			draggable
-			pauseOnHover
-			theme="dark"
-		/>
-	);
+	return <ToastContainer position="bottom-center" autoClose={2000} hideProgressBar newestOnTop={false} closeOnClick={false} rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="dark" aria-label="Toast"/>
 }
 
 export default Toastify;
