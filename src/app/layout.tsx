@@ -15,17 +15,16 @@ import { AppShell } from "@/components/AppShell";
 
 export const metadata: Metadata = {
 	title: "Tonalize – Smart Color Palette Generator for Designers & Developers",
-	description:
-		"Generate beautiful, WCAG-aware color palettes instantly with Tonalize. Lock colors, fine-tune HSL, check contrast, and export to CSS, SCSS, Tailwind, JSON, PNG or SVG — all in your browser.",
+	description: "Generate beautiful, WCAG-aware color palettes instantly with Tonalize. Lock colors, fine-tune HSL, check contrast, and export to CSS, SCSS, Tailwind, JSON, PNG or SVG — all in your browser.",
 	keywords: ["color palette generator", "color scheme tool", "UI design colors", "Next.js color app", "frontend developer tools", "color harmony", "Tonalize"],
 	authors: [{ name: "Jamil Ahmed", url: "https://github.com/jamil-codes" }],
 	creator: "Jamil Ahmed",
 	publisher: "Jamil Codes",
 	icons: {
-		icon: "/favicon.svg",
+		icon: "Toanlize/favicon.svg",
 	},
 	category: "design",
-};
+}
 
 export const viewport: Viewport = {
 	themeColor: [
